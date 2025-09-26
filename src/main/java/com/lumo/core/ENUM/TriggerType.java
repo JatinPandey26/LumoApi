@@ -1,0 +1,38 @@
+package com.lumo.core.ENUM;
+
+public enum TriggerType {
+
+    // Issues
+    GITHUB_ISSUE_CREATED,
+    GITHUB_ISSUE_UPDATED,
+    GITHUB_ISSUE_CLOSED,
+    GITHUB_ISSUE_REOPENED,
+
+    // Pull Requests
+    GITHUB_PR_OPENED,
+    GITHUB_PR_UPDATED,
+    GITHUB_PR_CLOSED,
+    GITHUB_PR_MERGED,
+    GITHUB_PR_REOPENED,
+
+    // Comments
+    GITHUB_ISSUE_COMMENT_CREATED,
+    GITHUB_ISSUE_COMMENT_UPDATED,
+    GITHUB_ISSUE_COMMENT_DELETED,
+    GITHUB_PR_COMMENT_CREATED,
+    GITHUB_PR_COMMENT_UPDATED,
+    GITHUB_PR_COMMENT_DELETED,
+
+    // Repository events
+    GITHUB_REPO_CREATED,
+    GITHUB_REPO_DELETED,
+    GITHUB_REPO_FORKED,
+
+    // Webhook / App installations
+    GITHUB_APP_INSTALLED,
+    GITHUB_APP_UNINSTALLED,
+
+    // Default / unknown
+    UNKNOWN
+}
+

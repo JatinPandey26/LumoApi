@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: lumo_db
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lumo_db
+      TZ: Asia/Kolkata
+
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: lumo_ngrok
+    restart: unless-stopped
+    environment:
+      NGROK_AUTHTOKEN: 33FAeG7aA59iTmF9c98RQ89ei6e_3M3zHEjZHVkB3EQSJ3z8M
+    command: http 8081  # change 8080 to your Spring Boot server port
+    network_mode: "host"
+
+volumes:
+  postgres_data:

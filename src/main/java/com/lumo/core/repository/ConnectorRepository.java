@@ -1,0 +1,10 @@
+package com.lumo.core.repository;
+
+
+import com.lumo.core.Entities.Connector;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ConnectorRepository extends JpaRepository<Connector,Long> {
+}
