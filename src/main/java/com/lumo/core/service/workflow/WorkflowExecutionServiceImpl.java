@@ -1,11 +1,13 @@
 package com.lumo.core.service.workflow;
 
+import com.lumo.core.ENUM.NodeType;
 import com.lumo.core.ENUM.TriggerType;
-import com.lumo.core.Entities.TriggerEntity;
+import com.lumo.core.Entities.WorkflowNodeEntity;
 import com.lumo.core.dto.trigger.TriggerEvent;
 import com.lumo.core.dto.trigger.Trigger;
 import com.lumo.core.mapper.TriggerMapper;
-import com.lumo.core.repository.TriggerRepository;
+import com.lumo.core.mapper.WorkflowNodeMapper;
+import com.lumo.core.repository.WorkflowNodeRepository;
 import com.lumo.core.service.trigger.TriggerMatcher;
 import com.lumo.core.service.trigger.TriggerMatcherRegistry;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +20,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WorkflowExecutionServiceImpl implements WorkflowExecutionService{
 
-    private final TriggerRepository triggerRepository;
     private final TriggerMatcherRegistry triggerMatcherRegistry;
     private final TriggerMapper triggerMapper;
     private final WorkflowExecutor workflowExecutor;
+    private final WorkflowNodeRepository workflowNodeRepository;
+    private final WorkflowNodeMapper workflowNodeMapper;
 
     @Override
     public void handleTrigger(TriggerType triggerType, TriggerEvent event) {
         // 1. Fetch all triggers of the given type from DB
-        List<TriggerEntity> triggerEntities = triggerRepository.findByType(triggerType);
+        List<WorkflowNodeEntity> triggerEntities = workflowNodeRepository.findByType(NodeType.TRIGGER);
 
         if (triggerEntities.isEmpty()) {
             // Optional: log
@@ -35,7 +38,7 @@ public class WorkflowExecutionServiceImpl implements WorkflowExecutionService{
         }
 
         // 2. Map to DTOs
-        List<Trigger> triggers = triggerMapper.toDtos(triggerEntities);
+        List<Trigger> triggers = triggerMapper.toTriggers(triggerEntities);
 
         // 3. Get the appropriate matcher for this trigger type
         TriggerMatcher triggerMatcher = triggerMatcherRegistry.getMatcher(triggerType);

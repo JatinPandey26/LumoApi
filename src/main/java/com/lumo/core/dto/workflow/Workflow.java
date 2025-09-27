@@ -25,7 +25,7 @@ public class Workflow {
     private WorkflowStatus status = WorkflowStatus.INITIAL;
 
     // List of triggers; can be empty to avoid null pointer issues
-    private List<Long> triggerIds = Collections.emptyList();
+    private long triggerId;
 
     // Optional metadata map
     private Map<String, String> metaData = Collections.emptyMap();

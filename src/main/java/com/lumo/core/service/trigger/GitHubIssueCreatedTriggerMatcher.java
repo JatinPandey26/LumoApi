@@ -20,9 +20,9 @@ public class GitHubIssueCreatedTriggerMatcher implements TriggerMatcher{
     @Override
     public boolean matches(Trigger trigger, TriggerEvent triggerEvent) {
 
-        if (trigger.getType() != getType()) {
+        if (trigger.getTriggerType() != getType()) {
             throw new TriggerTypeMismatchException(
-                    "Trigger type mismatch: expected " + getType() + " but got " + trigger.getType()
+                    "Trigger type mismatch: expected " + getType() + " but got " + trigger.getTriggerType()
             );
         }
 

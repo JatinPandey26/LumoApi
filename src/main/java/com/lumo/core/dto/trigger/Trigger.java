@@ -1,21 +1,20 @@
 package com.lumo.core.dto.trigger;
 
+import com.lumo.core.ENUM.NodeType;
 import com.lumo.core.ENUM.TriggerType;
-import com.lumo.core.dto.connector.Connector;
-import com.lumo.core.dto.workflow.Workflow;
+import com.lumo.core.dto.workflow.node.AbstractWorkflowNode;
+import lombok.Builder;
 import lombok.Data;
 
-import java.time.Instant;
-import java.util.Map;
 
 @Data
-public class Trigger {
-    private Long id;
-    private String name;
-    private Connector connector;
-    private Workflow workflow;
-    private TriggerType type;
+@Builder
+public class Trigger extends AbstractWorkflowNode {
+    private TriggerType triggerType;
     private TriggerPayload triggerPayload;
-    private Instant createdAt;
-    private Instant updatedAt;
+
+    @Override
+    public NodeType getNodeType() {
+        return NodeType.TRIGGER;
+    }
 }

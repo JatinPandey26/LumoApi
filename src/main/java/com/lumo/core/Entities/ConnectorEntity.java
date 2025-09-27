@@ -33,9 +33,6 @@ public class ConnectorEntity extends BaseEntity{
     @Column(nullable = false)
     private ConnectorStatus status = ConnectorStatus.INITIAL;
 
-    @OneToMany(mappedBy = "connector")
-    private List<TriggerEntity> triggers;
-
     @Type(JsonType.class)  // Hibernate knows this is JSONB
     @Column(columnDefinition = "JSONB")
     private HashMap<String, String> metaData = new HashMap<>();
