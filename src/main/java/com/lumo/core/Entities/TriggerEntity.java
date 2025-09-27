@@ -1,6 +1,8 @@
 package com.lumo.core.Entities;
 
 import com.lumo.core.ENUM.TriggerType;
+import com.lumo.core.dto.connector.Connector;
+import com.lumo.core.dto.workflow.Workflow;
 import com.lumo.core.dto.trigger.TriggerPayload;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.Column;
@@ -11,7 +13,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.Type;
@@ -28,10 +29,10 @@ public class TriggerEntity extends BaseEntity{
     private String name;
 
     @ManyToOne
-    private Workflow workflow;
+    private WorkflowEntity workflow;
 
     @ManyToOne
-    private Connector connector;
+    private ConnectorEntity connector;
 
     @Enumerated(EnumType.STRING)
     private TriggerType type;

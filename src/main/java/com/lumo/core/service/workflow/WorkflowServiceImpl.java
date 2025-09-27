@@ -1,6 +1,6 @@
 package com.lumo.core.service.workflow;
 
-import com.lumo.core.Entities.Workflow;
+import com.lumo.core.Entities.WorkflowEntity;
 import com.lumo.core.repository.WorkflowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ public class WorkflowServiceImpl implements WorkflowService {
     @Override
     public String create(String name) {
 
-        Workflow workflow = new Workflow();
+        WorkflowEntity workflow = new WorkflowEntity();
         workflow.setName(name);
-       Workflow savedWorkflow =  workflowRepository.save(workflow);
-       return savedWorkflow.getName();
+        WorkflowEntity savedWorkflow =  workflowRepository.save(workflow);
+        return savedWorkflow.getName();
 
     }
 }

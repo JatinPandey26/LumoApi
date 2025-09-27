@@ -1,4 +1,4 @@
-package com.lumo.core.github.ENUM;
+package com.lumo.core.ENUM;
 
 public enum GithubEvent {
     ISSUES("issues"),

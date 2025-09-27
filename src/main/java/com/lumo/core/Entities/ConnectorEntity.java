@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Connector extends BaseEntity{
+public class ConnectorEntity extends BaseEntity{
 
     @Column(name = "id", nullable = false, unique = true)
     @Id

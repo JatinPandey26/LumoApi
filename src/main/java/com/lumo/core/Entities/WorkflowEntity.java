@@ -3,15 +3,12 @@ package com.lumo.core.Entities;
 import com.lumo.core.ENUM.WorkflowStatus;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.Instant;
 import java.util.List;
 
 @Entity
 @Data
-public class Workflow extends BaseEntity{
+public class WorkflowEntity extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +19,7 @@ public class Workflow extends BaseEntity{
 
     @Column
     @Enumerated(value = EnumType.STRING)
-    public WorkflowStatus status = WorkflowStatus.INITIAl;
+    public WorkflowStatus status = WorkflowStatus.INITIAL;
 
     //TODO: add trigger and actions
 

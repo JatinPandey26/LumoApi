@@ -1,11 +1,10 @@
 package com.lumo.core.dto.connector;
 
+import com.lumo.core.dto.trigger.TriggerEvent;
 import lombok.Data;
 
-import java.util.Map;
-
 @Data
-public class GithubWebhookEvent {
+public class GithubWebhookEvent implements TriggerEvent {
     private String action;
     private Repository repository;
     private User sender;

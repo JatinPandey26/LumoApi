@@ -2,7 +2,7 @@ package com.lumo.core.ENUM;
 
 public enum WorkflowStatus {
 
-    INITIAl,
+    INITIAL,
     ACTIVE,
     INACTIVE
 }

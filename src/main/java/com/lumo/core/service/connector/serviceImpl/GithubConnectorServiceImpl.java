@@ -2,7 +2,7 @@ package com.lumo.core.service.connector.serviceImpl;
 
 import com.lumo.core.ENUM.ConnectorStatus;
 import com.lumo.core.ENUM.MetaDataKeys;
-import com.lumo.core.Entities.Connector;
+import com.lumo.core.Entities.ConnectorEntity;
 import com.lumo.core.dto.connector.ConnectorPostInstallationPayload;
 import com.lumo.core.dto.connector.CreateConnectorRequest;
 import com.lumo.core.dto.connector.GithubConnectorPostInstallationPayload;
@@ -23,7 +23,7 @@ public class GithubConnectorServiceImpl implements ConnectorService {
     @Override
     public long createConnector(CreateConnectorRequest createConnectorRequest) {
 
-        Connector connector = new Connector();
+        ConnectorEntity connector = new ConnectorEntity();
         GithubCreateConnectorRequest githubCreateConnectorRequest = (GithubCreateConnectorRequest)createConnectorRequest;
         connector.setName(githubCreateConnectorRequest.getConnectorName());
         connector.setType(githubCreateConnectorRequest.getConnectorType());
@@ -40,11 +40,11 @@ public class GithubConnectorServiceImpl implements ConnectorService {
     public void handlePostInstallation(ConnectorPostInstallationPayload connectorPostInstallationPayload) {
 
         GithubConnectorPostInstallationPayload githubConnectorPostInstallationPayload = (GithubConnectorPostInstallationPayload) connectorPostInstallationPayload;
-        Optional<Connector> connectorOptional = connectorRepository.findById(Long.valueOf(githubConnectorPostInstallationPayload.getConnectorId()));
+        Optional<ConnectorEntity> connectorOptional = connectorRepository.findById(Long.valueOf(githubConnectorPostInstallationPayload.getConnectorId()));
         if(!connectorOptional.isPresent()){
             throw new RuntimeException("Connector with this id not found " + githubConnectorPostInstallationPayload.getConnectorId());
         }
-        Connector connector = connectorOptional.get();
+        ConnectorEntity connector = connectorOptional.get();
         connector.getMetaData().put(String.valueOf(MetaDataKeys.GITHUB_INSTALLATION_ID), String.valueOf(githubConnectorPostInstallationPayload.getInstallationId()));
         connector.setStatus(ConnectorStatus.ACTIVE);
 

@@ -1,20 +1,17 @@
-package com.lumo.core.github.resolver;
+package com.lumo.core.resolver;
 
 
 import com.lumo.core.ENUM.TriggerType;
 import com.lumo.core.dto.connector.GithubWebhookEvent;
-import com.lumo.core.github.ENUM.GithubAction;
-import com.lumo.core.github.ENUM.GithubEvent;
+import com.lumo.core.ENUM.GithubAction;
+import com.lumo.core.ENUM.GithubEvent;
 import org.springframework.stereotype.Component;
-
-import java.util.Map;
 /*
 TODO : we may need to introduce a TriggerResolver interface when we move to another connector
 */
 
 @Component
 public class GithubWebhookTriggerResolver {
-
 
     public TriggerType resolve(String eventName, GithubWebhookEvent eventPayload) {
         GithubEvent event = GithubEvent.fromString(eventName);
