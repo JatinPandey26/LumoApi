@@ -21,10 +21,8 @@ public class WorkflowEntity extends BaseEntity{
     @Enumerated(value = EnumType.STRING)
     public WorkflowStatus status = WorkflowStatus.INITIAL;
 
-    //TODO: add trigger and actions
-
-    // as of now we have only 1 trigger per workflow
-    @OneToMany(mappedBy = "workflow")
-    private List<TriggerEntity> triggers;
+    @Column
+    @OneToMany
+    public List<WorkflowNodeEntity> nodes;
 
 }

@@ -10,5 +10,4 @@ public interface ConnectorMapper {
     Connector toDto(ConnectorEntity connectorEntity);
 
     ConnectorEntity toEntity(Connector connector);
-
 }
