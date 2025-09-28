@@ -1,6 +1,5 @@
 package com.lumo.core.service.workflow;
 
-import com.lumo.core.ENUM.WorkflowStatus;
 import com.lumo.core.dto.trigger.Trigger;
 import com.lumo.core.dto.workflow.Workflow;
 import java.time.Instant;

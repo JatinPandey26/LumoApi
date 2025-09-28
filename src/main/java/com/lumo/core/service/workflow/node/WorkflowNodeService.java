@@ -1,6 +1,5 @@
 package com.lumo.core.service.workflow.node;
 
-import com.lumo.core.dto.workflow.node.BaseWorkflowNode;
 import com.lumo.core.dto.workflow.node.WorkflowNode;
 import com.lumo.core.dto.workflow.node.WorkflowNodeRequest;
 

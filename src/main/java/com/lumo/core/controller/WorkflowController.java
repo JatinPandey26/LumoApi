@@ -1,7 +1,6 @@
 package com.lumo.core.controller;
 
 import com.lumo.core.dto.api.ApiResponse;
-import com.lumo.core.dto.trigger.TriggerRequest;
 import com.lumo.core.dto.workflow.node.WorkflowNode;
 import com.lumo.core.dto.workflow.node.WorkflowNodeRequest;
 import com.lumo.core.service.workflow.WorkflowService;

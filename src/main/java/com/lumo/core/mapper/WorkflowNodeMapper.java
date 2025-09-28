@@ -3,7 +3,6 @@ package com.lumo.core.mapper;
 import com.lumo.core.Entities.ConnectorEntity;
 import com.lumo.core.Entities.WorkflowEntity;
 import com.lumo.core.Entities.WorkflowNodeEntity;
-import com.lumo.core.dto.trigger.Trigger;
 import com.lumo.core.dto.workflow.node.WorkflowNode;
 import com.lumo.core.dto.workflow.node.WorkflowNodeRequest;
 import org.mapstruct.IterableMapping;
